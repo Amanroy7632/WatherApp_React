@@ -2,8 +2,9 @@ import { useState } from "react";
 
  async function useWeather(cityName){
     const [data,setData]=useState({})
+    const API_KEY=import.meta.env.VITE_APP_WEATHER_API_KEY;
     // let data={}
-    const url=`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=c7e34314a76d2ef8c294b268f0e7a72e`
+    const url=`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`
     await fetch(url).then(async (res)=>{
         const  res_data=await res.json()
         console.log(res_data);
