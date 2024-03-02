@@ -8,7 +8,8 @@ function App() {
   const cardData=[]
   const [location, setLocation] = useState("Amritsar");
   const [data, setData] = useState({});
-  const API_KEY=import.meta.env.VITE_APP_WEATHER_API_KEY
+  // const API_KEY=import.meta.env.VITE_APP_WEATHER_API_KEY
+  const API_KEY="f6dab2f5e58953477727b66511357b7d"
   // console.log(API_KEY);
   const country = "IN";
   // const { loading,error,data}=fetchWeather(location)
