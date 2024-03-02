@@ -8,7 +8,8 @@ function App() {
   const cardData=[]
   const [location, setLocation] = useState("Amritsar");
   const [data, setData] = useState({});
-  const API_KEY=import.meta.env.VITE_APP_WEATHER_API_KEY
+  // const API_KEY=import.meta.env.VITE_APP_WEATHER_API_KEY
+  const API_KEY="f6dab2f5e58953477727b66511357b7d"
   // console.log(API_KEY);
   const country = "IN";
   // const { loading,error,data}=fetchWeather(location)
@@ -56,12 +57,14 @@ function App() {
   }
   return (
     <div
-      className="main w-full h-screen bg-no-repeat bg-center flex flex-wrap justify-center items-center"
+      className="main w-full h-screen bg-no-repeat bg-center flex flex-wrap justify-center items-center max-sm:items-start"
       // style={{backgroundImage: "url(https://wallpapercave.com/wp/wp1933991.jpg)",}}
       // style={{backgroundImage:"url(https://wallpaperaccess.com/full/3173348.jpg)"}}
       style={{backgroundImage:`url(${bgImageRandom})`}}
     >
-      <div className="upper-main-part w-3/6 h-1/1 border border-blue-50 rounded-xl p-10 backdrop-blur-sm bg-white/30">
+      
+      <div className="upper-main-part w-3/6 h-1/1 max-sm:w-full  max-sm:mt-20 border border-blue-50 rounded-xl p-10 backdrop-blur-sm bg-white/30">
+      {/* <h1 className=" text-3xl pt-5">My Weather App</h1> */}
         {data.main?(<h2 className=" text-4xl">{`${data.name}`}</h2>):("")}
         <form onSubmit={(e) => {
             e.preventDefault();
@@ -74,7 +77,7 @@ function App() {
             type="text"
             name=""
             id=""
-            className="w-1/2 text-center rounded-xl outline-none text-2xl"
+            className="w-1/2 max-sm:w-4/5 max-sm:mt-5 text-center rounded-xl outline-none text-2xl"
             ref={inpRef}
             value={location}
             onChange={(ev) => {
@@ -103,7 +106,7 @@ function App() {
           <div className="w-1/4 rounded-lg h-full border text-center">
             {/* {data.main ? data.wind.speed : console.log("Hello Aman")} */}
             {data.main ? (
-              <p className=" text-lg ">{`${data.clouds.all.toFixed()} %`}</p>
+              <p className=" text-lg max-sm:text-sm">{`${data.clouds.all.toFixed()} %`}</p>
             ) : (
               // <p className="text-2xl text-orange-400">&nbsp;</p>
               ""
@@ -113,7 +116,7 @@ function App() {
           <div className="w-1/4 rounded-lg h-full border text-center">
             {/* {data.main ? data.wind.speed : console.log("Hello Aman")} */}
             {data.main ? (
-              <p className=" text-lg ">{`${data.main.humidity.toFixed()}%`}</p>
+              <p className=" text-lg max-sm:text-sm">{`${data.main.humidity.toFixed()}%`}</p>
             ) : (
               // <p className="text-2xl text-orange-400">&nbsp;</p>
               ""
@@ -123,7 +126,7 @@ function App() {
           <div className="w-1/4 rounded-lg h-full border text-center">
             {/* {data.main ? data.wind.speed : console.log("Hello Aman")} */}
             {data.main ? (
-              <p className=" text-lg ">{`${parseInt(data.visibility)/1000} km`}</p>
+              <p className=" text-lg max-sm:text-sm">{`${parseInt(data.visibility)/1000} km`}</p>
             ) : (
               // <p className="text-2xl text-orange-400">&nbsp;</p>
               ""
@@ -133,7 +136,7 @@ function App() {
           <div className="w-1/4 rounded-lg h-full border text-center">
             {/* {data.main ? data.wind.speed : console.log("Hello Aman")} */}
             {data.main ? (
-              <p className=" text-lg ">{`${data.main.pressure} Mb`}</p>
+              <p className=" text-lg max-sm:text-sm">{`${data.main.pressure} Mb`}</p>
             ) : (
               // <p className="text-2xl text-orange-400">&nbsp;</p>
               ""
@@ -142,7 +145,7 @@ function App() {
           </div>
         </div>
         <div className="btn-container w-full flex flex-wrap justify-center items-center">
-        <button className="btn text-3xl text-center bg-slate-700 w-1/2 rounded-2xl mt-4 text-white p-2"
+        <button className="btn text-3xl max-sm:w-full text-center bg-slate-700 w-1/2 rounded-2xl mt-4 text-white p-2"
          type="submit">
           Get Weather
         </button>
