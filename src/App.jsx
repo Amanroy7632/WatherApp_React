@@ -65,7 +65,7 @@ function App() {
       
       <div className="upper-main-part w-3/6 h-1/1 max-sm:w-full  max-sm:mt-20 border border-blue-50 rounded-xl p-10 backdrop-blur-sm bg-white/30">
       {/* <h1 className=" text-3xl pt-5">My Weather App</h1> */}
-        {data.main?(<h2 className=" text-4xl">{`${data.name}`}</h2>):("")}
+        {data.main?(<h2 className=" text-5xl">{`${data.name}`}</h2>):("")}
         <form onSubmit={(e) => {
             e.preventDefault();
             searchLocation(e);
@@ -95,9 +95,9 @@ function App() {
             
             <h1 className="py-4 text-4xl mx-auto text-white" id="hide-comment">Temp 0°C</h1>
           )}
-          {data.main? (<p>{data.weather[0].description} | Feels like {`${data.main.feels_like.toFixed()}°F`}</p>):("")}
-          {data.main?(<p>Wind <span>{`${data.wind.speed} km/h `}{data.wind.deg}°</span></p>):("")}
-          <h3 className="mt-3 text-2xl text-white">Details</h3>
+         <span className=" text-xl"> {data.main? (<p>{data.weather[0].description} | Feels like {`${data.main.feels_like.toFixed()}°F`}</p>):("")}</span>
+          <span className=" text-xl"> {data.main?(<p>Wind <span>{`${data.wind.speed} km/h `}{data.wind.deg}°</span></p>):("")}</span>
+          <h3 className="mt-3 text-3xl text-white">Details</h3>
         </div>
         <div className="bottom-part flex flex-wrap justify-evenly">
           {/* {cardData.map((card) => {
